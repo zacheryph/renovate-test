@@ -20,11 +20,11 @@
   ],
   "packageRules": [
     {
-      "labels": ["renovate/github-release"],
-      "matchDatasources": ["github-releases"],
+      "addLabels": ["renovate/github-release"],
+      "matchDatasources": ["github-releases"]
     },
     {
-      "labels": ["dependency/minor"],
+      "addLabels": ["dependency/minor"],
       "matchUpdateTypes": ["minor"]
     }
   ]
