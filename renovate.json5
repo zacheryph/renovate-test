@@ -1,0 +1,31 @@
+{
+  "enabled": true,
+  "timezone": "America/Chicago",
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Renovate Dashboard",
+  "suppressNotifications": ["prIgnoreNotification"],
+  "commitMessageSuffix": "[ci-skip]",
+  "rebaseWhen": "conflicted,",
+  "assignees": ["@zacheryph"],
+
+  "regexManagers": [
+    // github-releases urls
+    {
+      "fileMatch": ["github-releases/.+"],
+      "matchStrings": [
+        "https://github.com/(?<depName>.*?)/releases/download/(?<currentValue>[^/]*)/"
+      ],
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "packageRules": [
+    {
+      "labels": ["renovate/github-release"],
+      "matchDatasources": ["github-releases"],
+    },
+    {
+      "labels": ["dependency/minor"],
+      "matchUpdateTypes": ["minor"]
+    }
+  ]
+}
