@@ -5,4 +5,4 @@ resources:
 
 images:
 - name: pod-image
-  newTag: latest
+  newTag: 4a1de4b26d184afcd6966ab46b08f88134078706
