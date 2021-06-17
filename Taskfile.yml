@@ -1,0 +1,16 @@
+version: "3"
+
+tasks:
+  default:
+    silent: true
+    cmds:
+    - go-task -l
+  trigger:
+    silent: true
+    cmds:
+    - echo "trigger workflow"
+    - echo "# simple workflow trigger" > .trigger
+    - openssl rand -base64 12 >> .trigger
+    - git add .trigger
+    - git ci --no-gpg-sign -m 'trigger workflow'
+    - git push --quiet origin
