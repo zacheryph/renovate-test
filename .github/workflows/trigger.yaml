@@ -30,7 +30,7 @@ jobs:
       run: |
         git config --local user.name "Github Action"
         git config --local user.email "action@github.com"
-        git add kustomization.yaml
+        git add workflow-trigger
         git ci -m 'update image ${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}'
 
     - name: push-update
