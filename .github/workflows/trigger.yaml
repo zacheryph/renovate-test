@@ -18,10 +18,6 @@ jobs:
         echo "  name : ${{ github.event.inputs.name }}"
         echo "  image: ${{ github.event.inputs.image }}"
 
-    - name: maybe-fail
-      run: |
-        [[ $(( ${{ github.run_number }} % 3 )) == 0 ]] && exit 1
-
     - uses: imranismail/setup-kustomize@v1
     - uses: actions/checkout@v2
 
