@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  send-trigger:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: echo commit
+      run: |
+        echo "Current Commit:"
+        echo "  Github: ${{ github.sha }}"
+        echo "   Local: $(git rev-parse HEAD)"
+
+    - name: trigger workflow
+      uses: convictional/trigger-workflow-and-wait@v1.3.0
+      with:
+        owner: zacheryph
+        repository: cicd-playground
+        github_token: ${{ secrets.GH_TOKEN }}
+        workflow_file_name: trigger.yaml
+        inputs: |
+          { "image": "pod-image", "tag": "${{ github.sha }}" }

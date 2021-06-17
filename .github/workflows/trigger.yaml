@@ -1,0 +1,50 @@
+on:
+  workflow_dispatch:
+    inputs:
+      image:
+        description: image name we're updating
+        required: true
+      tag:
+        description: new image tag
+        required: true
+
+jobs:
+  update-kustomization:
+    runs-on: ubuntu-latest
+    steps:
+    - name: event-information
+      run: |
+        echo "Event Information"
+        echo "  name : ${{ github.event.inputs.name }}"
+        echo "  image: ${{ github.event.inputs.image }}"
+
+    - name: maybe-fail
+      run: |
+        [[ $(( ${{ github.run_number }} % 3 )) == 0 ]] && exit 1
+
+    - name: checkout
+      uses: actions/checkout@v2
+
+    - name: update-image
+      uses: imranismail/setup-kustomize@v1
+      working-directory: ./workflow-trigger
+      run: |
+        kustomize edit set image ${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}
+
+    - name: commit-update
+      run: |
+        git config --local user.name "Github Action"
+        git config --local user.email "action@github.com"
+        git add kustomization.yaml
+        git ci -m 'update image ${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}'
+
+    - name: push-update
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: print-kustomization
+      uses: imranismail/setup-kustomize@v1
+      working-directory: ./workflow-trigger
+      run: |
+        kustomize build .

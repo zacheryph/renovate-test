@@ -9,11 +9,12 @@ anything related to testing out renovate configurations and
 related resources will go into the renovate/ directory with
 `/.github/renovate.json5` being the configuration.
 
-# workflow trigger gitops
+# workflow-trigger
 
+* `/workflow-trigger`
 * `/.github/workflows/build.yaml`
 * `/.github/workflows/trigger.yaml`
 
 this is testing _gitops in actions_ using actions to trigger
-workflows in _other_ repositories, alter and commit/create
-a pull request for changes.
+workflows in _other_ repositories, alter repository, commit
+and/or create a pull request for changes.
