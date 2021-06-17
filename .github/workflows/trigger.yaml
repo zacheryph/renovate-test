@@ -43,7 +43,6 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: print-kustomization
-      uses: imranismail/setup-kustomize@v1
       working-directory: ./workflow-trigger
       run: |
         kustomize build .
