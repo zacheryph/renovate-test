@@ -20,7 +20,7 @@ jobs:
       uses: convictional/trigger-workflow-and-wait@v1.3.0
       with:
         owner: zacheryph
-        repository: cicd-playground
+        repo: cicd-playground
         github_token: ${{ secrets.GH_TOKEN }}
         workflow_file_name: trigger.yaml
         inputs: |
