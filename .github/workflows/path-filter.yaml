@@ -20,7 +20,7 @@ jobs:
           changed:
             added|modified: 'path-filter/**'
     - name: versions
-      if: ${{ needs.versions.outputs.matrix == 'true' }}
+      if: ${{ steps.filter.outputs.changed == 'true' }}
       run: |
         echo "FILES: ${{ steps.filter.outputs.changed_files }}"
         VERS=()
