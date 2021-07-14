@@ -18,3 +18,8 @@ related resources will go into the renovate/ directory with
 this is testing _gitops in actions_ using actions to trigger
 workflows in _other_ repositories, alter repository, commit
 and/or create a pull request for changes.
+
+# path-filter
+
+`dorny/path-filter` testing for running matrix jobs only on
+changed paths.
