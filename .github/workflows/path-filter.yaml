@@ -10,9 +10,9 @@ jobs:
       changes: ${{ steps.filter.outputs.changed }}
       matrix: ${{ steps.versions.outputs.versions }}
     steps:
-    - name: Checkout
+    - id: checkout
       uses: actions/checkout@v2
-    - name: filter
+    - id: filter
       uses: dorny/paths-filter@v2
       with:
         base: ${{ github.ref }}
