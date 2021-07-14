@@ -28,8 +28,8 @@ jobs:
 
     - name: commit-update
       run: |
-        git config --local user.name "Github Action"
-        git config --local user.email "action@github.com"
+        git config --local user.name "actions-user"
+        git config --local user.email "actions-user@github.com"
         git add workflow-trigger
         git commit -m 'update image ${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}'
 
