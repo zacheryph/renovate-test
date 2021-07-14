@@ -20,7 +20,7 @@ jobs:
         filters: |
           changed:
             added|modified: 'path-filter/**'
-    - name: versions
+    - id: versions
       if: steps.filter.outputs.changed == 'true'
       run: |
         VERS=()
@@ -43,8 +43,8 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.versions.outputs.matrix) }}
     steps:
-    - name: Checkout
+    - id: checkout
       uses: actions/checkout@v2
-    - name: echo
+    - id: echo
       run: |
         echo "Processing: ${{ matrix.version }}"
