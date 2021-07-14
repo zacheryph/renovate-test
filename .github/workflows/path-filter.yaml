@@ -34,7 +34,7 @@ jobs:
         echo "PATHS: ${PATHS[@]}"
         echo "PATHS: ${VERS[@]}"
         echo "MATRIX: ${MATRIX}"
-        echo ::set-output name=versions::${MATRIX}
+        echo ::set-output name=matrix::${MATRIX}
 
   print:
     runs-on: ubuntu-20.04
