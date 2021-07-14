@@ -39,7 +39,7 @@ jobs:
   print:
     runs-on: ubuntu-20.04
     needs: versions
-    if: needs.versions.outputs.changed == 'true'
+    if: ${{ needs.versions.outputs.changed == 'true' }}
     strategy:
       matrix: ${{ fromJson(needs.versions.outputs.matrix) }}
     steps:
