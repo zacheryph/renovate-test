@@ -38,7 +38,6 @@ jobs:
   print:
     runs-on: ubuntu-20.04
     needs: versions
-    if: ${{ needs.versions.outputs.matrix == 'true' }}
     strategy:
       matrix: ${{ fromJson(needs.versions.outputs.matrix) }}
     steps:
