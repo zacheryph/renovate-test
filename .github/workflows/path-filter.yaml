@@ -7,7 +7,7 @@ jobs:
   versions:
     runs-on: ubuntu-20.04
     outputs:
-      changes: ${{ steps.filter.outputs.changed }}
+      changed: ${{ steps.filter.outputs.changed }}
       matrix: ${{ steps.versions.outputs.versions }}
     steps:
     - id: checkout
