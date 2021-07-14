@@ -21,9 +21,8 @@ jobs:
           changed:
             added|modified: 'path-filter/**'
     - name: versions
-      if: ${{ steps.filter.outputs.changed == 'true' }}
+      if: steps.filter.outputs.changed == 'true'
       run: |
-        echo "FILES: ${{ steps.filter.outputs.changed_files }}"
         VERS=()
         PATHS=(${{ steps.filter.outputs.changed_files }})
         for p in "${PATHS[@]}" ; do
@@ -40,7 +39,7 @@ jobs:
   print:
     runs-on: ubuntu-20.04
     needs: versions
-    if: ${{ needs.versions.outputs.changed == 'true' }}
+    if: needs.versions.outputs.changed == 'true'
     strategy:
       matrix: ${{ fromJson(needs.versions.outputs.matrix) }}
     steps:
