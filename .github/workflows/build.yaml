@@ -19,7 +19,7 @@ jobs:
         echo "   Local: $(git rev-parse HEAD)"
 
     - name: trigger workflow
-      uses: convictional/trigger-workflow-and-wait@v1.5.0
+      uses: convictional/trigger-workflow-and-wait@v1.6.0
       with:
         owner: zacheryph
         repo: cicd-playground
