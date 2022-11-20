@@ -18,7 +18,7 @@ jobs:
         echo "  name : ${{ github.event.inputs.name }}"
         echo "  image: ${{ github.event.inputs.image }}"
 
-    - uses: imranismail/setup-kustomize@v1
+    - uses: imranismail/setup-kustomize@v2
     - uses: actions/checkout@v2
 
     - name: update-image
