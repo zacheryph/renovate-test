@@ -5,7 +5,7 @@ on:
 
 jobs:
   versions:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     outputs:
       changed: ${{ steps.filter.outputs.changed }}
       matrix: ${{ steps.versions.outputs.matrix }}
@@ -37,7 +37,7 @@ jobs:
         echo ::set-output name=matrix::${MATRIX}
 
   print:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     needs: versions
     if: ${{ needs.versions.outputs.changed == 'true' }}
     strategy:
