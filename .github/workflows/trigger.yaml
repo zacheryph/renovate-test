@@ -34,7 +34,7 @@ jobs:
         git commit -m 'update image ${{ github.event.inputs.image }}:${{ github.event.inputs.tag }}'
 
     - name: push-update
-      uses: ad-m/github-push-action@v0.6.0
+      uses: ad-m/github-push-action@v0.8.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branch: main
