@@ -11,7 +11,7 @@ jobs:
       matrix: ${{ steps.versions.outputs.matrix }}
     steps:
     - id: checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - id: filter
       uses: dorny/paths-filter@v2
       with:
@@ -44,7 +44,7 @@ jobs:
       matrix: ${{ fromJson(needs.versions.outputs.matrix) }}
     steps:
     - id: checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - id: echo
       run: |
         echo "Processing: ${{ matrix.version }}"
