@@ -13,7 +13,7 @@ jobs:
     - id: checkout
       uses: actions/checkout@v2
     - id: filter
-      uses: dorny/paths-filter@v2
+      uses: dorny/paths-filter@v3
       with:
         base: ${{ github.ref }}
         list-files: shell
